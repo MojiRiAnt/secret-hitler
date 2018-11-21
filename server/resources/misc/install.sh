@@ -28,7 +28,7 @@ cd secret-hitler-env
 git clone https://github.com/MojiRiAnt/secret-hitler.git
 
 cd secret-hitler
-pip3 install -r resources/misc/requirements.txt
+pip3 install -r server/resources/misc/requirements.txt
 
 echo ""
 echo -e "\e[1;92mScript finished successfully!\e[0m"
