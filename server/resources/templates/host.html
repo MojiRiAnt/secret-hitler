@@ -12,12 +12,15 @@
         <h1>Host a Room</h1>
     </header>
     <form>
-        <label>Room name:</label>
-        <input type="text" value="NewRoom"/><br/>
-        <!--input type="text" value="Password"/><br/>
-        <input type="checkbox"/>
-        <span>Use password</span><br/-->
-        <input type="submit" value="Create"/>
+        <h2>Room Settings</h2>
+        <div class="grid">
+            <label>Room name:</label>
+            <input type="text" id="inputTextRoomName" value=""/>
+            <label>Password:</label>
+            <input type="checkbox" id="inputCheckboxUsePwd"/>
+            <input type="password" id="inputPasswordRoomPwd" value=""/>
+        </div>
+        <!--input type="submit" id="inputSubmit" value="Create"/-->
     </form>
 
     <h1 class="small-screen-error">Please, use wider screen!</h1>

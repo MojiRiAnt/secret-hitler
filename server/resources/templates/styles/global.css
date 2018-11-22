@@ -3,7 +3,6 @@
 * {
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
 }
 
@@ -25,7 +24,6 @@ header {
 
     text-align: center;
 }
-
 header > img {
     padding: inherit;
     width: auto;
@@ -37,13 +35,21 @@ header > img {
 
     border-radius: 30%;
 }
-@media (max-width:400px) {
+header >  h1 {
+    padding-top: inherit;
+    color: #fff;
+}
+@media (min-width:231px) and (max-width:400px) {
 header > img {
     display: none;
 }
 }
-
-header >  h1 {
-    padding-top: inherit;
-    color: #fff;
+@media (max-width:230px) {
+header > h1 {
+    display: none;
+}
+header > img {
+    position: relative;
+    top: -10px;
+}
 }

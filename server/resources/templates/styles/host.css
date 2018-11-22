@@ -1,38 +1,44 @@
-@media (max-width:500px) {
-form {
-    display: none;
-}
-}
-@media (min-width:501px) {
-.small-screen-error {
-    display: none;
-}
-}
-
 form {
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
-    padding: 10px;
+    padding: 15px;
     width: 400px;
-    height: auto;
+    height: 400px;
 
     text-align: center;
 
     background: #333344;
 }
+@media (max-width:500px) {
+form {
+    display: none;
+}
+}
 
-form > label {
-    margin-right: 30px;
+
+form > h2 {
+    margin-bottom: 20px;
 
     color: #fff;
 }
 
-form > input {
-    margin: 5px;
-    width: 200px;
 
-    text-align: center;
+form > .grid {
+    display: grid;
+    grid-template-columns: 35% 8% 55%;
+    grid-column-gap: 1%;
+    grid-row-gap: 10px;
+}
+.grid > input[type=text] {
+    grid-column: 2/4;
+}
+.grid > label {
+    margin-top: 5px;
+    color: #fff;
+}
+.grid > input[type=checkbox] {
+    margin-top: 5px;
 }
 
 .small-screen-error {
@@ -40,3 +46,9 @@ form > input {
     color: #eef;
     text-align: center;
 }
+@media (min-width:501px) {
+.small-screen-error {
+    display: none;
+}
+}
+
