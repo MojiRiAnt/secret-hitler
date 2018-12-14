@@ -1,0 +1,59 @@
+form {
+    margin-top: 100px;
+    height: 435px;
+}
+
+form > h2 {
+    margin-bottom: 40px
+}
+
+form > .grid {
+    margin-left: 60px;
+    margin-right: 60px;
+
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-row-gap: 2px;
+}
+
+.grid--header {
+    margin-bottom: 10px;
+
+    font-style: bold;
+    font-size: 18pt;
+}
+.grid--header--room-name {
+    margin-left: -10px;
+}
+.grid--header--players-amount {
+    margin-right: -5px;
+}
+.grid__left {
+    text-align: left;
+
+    color: #fff;
+}
+.grid__right {
+    text-align: right;
+
+    color: #fff;
+}
+.grid__right--image {
+    margin-left: 50px;
+    width: 20px;
+    height: auto;
+
+    border-radius: 50%;
+}
+.grid__right--image:hover {
+    cursor: pointer;
+}
+
+
+.grid__left--wide {
+    grid-column: 1/2;
+    line-height: 20px;
+}
+.grid__right--hidden {
+    display: none;
+}

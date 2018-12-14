@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Lobby Editor - Secret Hitler</title>
+    <link href="resources/templates/styles/global.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="resources/templates/styles/lobby.css" rel="stylesheet" type="text/css" media="all"/>
+</head>
+<body>
+    <header>
+        <img src="resources/sprites/logo.png" alt=""/>
+        <h1>Lobby Editor</h1>
+    </header>
+    <form>
+        <h2>Players in Lobby</h2>
+        <div class="grid">
+            <p class="grid__left grid--header grid--header--room-name" id="roomName">{{ roomName }}</p>
+            <p class="grid__right grid--header grid--header--players-amount" id="playersAmount">0/10</p>
+           
+            {% for i in range(10) %}
+                <p class="grid__left" id="nickname{{ i }}">Empty Slot</p>
+                <img class="grid__right grid__right--image" src="resources/sprites/delete.png" alt="×" id="actionDel{{ i }}"/>
+            {% endfor %}
+        </div>        
+        <img class="btn--confirm" src="resources/sprites/confirm.png" alt="" id="btnSubmit"/>
+    </form>
+
+    <h1 class="small-screen-error">Please, use wider screen!</h1>
+
+    <script>const roomName="{{ roomName }}"</script>
+    <script type="text/javascript" src="resources/templates/scripts/lobby.js"></script>
+</body>
+</html>
