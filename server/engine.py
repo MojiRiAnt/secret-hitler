@@ -5,6 +5,7 @@ class Room ():
 
     def __init__(self):
         self.players = list()
+        self.roles = dict()
         self.state = state['lobby']
 
 rooms = dict()
