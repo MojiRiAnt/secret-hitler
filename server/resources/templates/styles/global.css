@@ -72,7 +72,7 @@ form {
 }
 }
 
-form > h2 {
+form h2 {
     color: #fff;
 }
 
@@ -104,4 +104,11 @@ form > h2 {
 .small-screen-error {
     display: none;
 }
+}
+
+.hidden {
+    display: none;
+}
+.blocked {
+    disabled: disabled;
 }

@@ -19,7 +19,6 @@ form > .grid {
 .grid--header {
     margin-bottom: 10px;
 
-    font-style: bold;
     font-size: 18pt;
 }
 .grid--header--room-name {
@@ -30,6 +29,7 @@ form > .grid {
 }
 .grid__left {
     text-align: left;
+    line-height: 20px;
 
     color: #fff;
 }
@@ -52,7 +52,6 @@ form > .grid {
 
 .grid__left--wide {
     grid-column: 1/2;
-    line-height: 20px;
 }
 .grid__right--hidden {
     display: none;

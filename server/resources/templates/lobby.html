@@ -18,11 +18,11 @@
             <p class="grid__right grid--header grid--header--players-amount" id="playersAmount">0/10</p>
            
             {% for i in range(10) %}
-                <p class="grid__left" id="nickname{{ i }}">Empty Slot</p>
-                <img class="grid__right grid__right--image" src="resources/sprites/delete.png" alt="×" id="actionDel{{ i }}"/>
+                <p class="grid__left grid__left--wide" id="nickname{{ i }}">Empty Slot</p>
+                <img class="grid__right grid__right--image grid__right--hidden" src="resources/sprites/buttons/delete.png" alt="×" id="actionDel{{ i }}"/>
             {% endfor %}
         </div>        
-        <img class="btn--confirm" src="resources/sprites/confirm.png" alt="" id="btnSubmit"/>
+        <img class="btn--confirm" src="resources/sprites/buttons/confirm.png" alt="" id="btnSubmit"/>
     </form>
 
     <h1 class="small-screen-error">Please, use wider screen!</h1>

@@ -12,6 +12,8 @@ color palette:
 #393939 - grey
 #fffeff - white
 
+#877d56 - green
+
 #000015 - matte blue
 #333344 - lighter blue
 #eec48b - light yellow
@@ -19,24 +21,35 @@ color palette:
 
 body {
     font-family: 'Titillium Web', sans-serif;
-    /*TODO*/
+    background-color: #877d56;
 }
 
 header, footer{
     width: 100vw;
-    background-color: #00ff00;
+    background-color: #393939;
 }
 header {
-    height: 5vh;
+    height: 10vh;
 
     text-align: center;
 }
+h1,h2,h5 {
+    color: #fffeff;
+}
 header > h1 {
-/*TODO*/
+    padding-top: 1.5vh;
+    font-size: 5vh;
+    line-height: 5vh;
+    font-weight: bolder;
+}
+header > h5 {
+    font-size: 1.5vh;
+    line-height: 1.5vh;
+    font-weight: normal;
 }
 footer {
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     height: 10vh;
 
     position: fixed;
@@ -51,7 +64,22 @@ footer > img {
 }
 
 form {
-/*TODO*/
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vh;
+    width: 90vw;
+    height: 76vh;
+    
+    background-color: #393939;
+    border-radius: 2vh;
+}
+form > h2 {
+    text-align: center;
+
+    font-size: 3vh;
+    line-height: 3vh;
 }
 @media (max-width:500px) {
 form {

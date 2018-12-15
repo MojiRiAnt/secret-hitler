@@ -13,6 +13,39 @@
     </header>
 
     <form>
+        <div id="formStatus">
+            <h2>Game Status</h2>
+            <div class="grid">
+                <label>Room name:</label>
+                <input type="text" id="inputTextRoomName"/>
+                <label>Password:</label>
+                <input type="password" id="inputTextPassword"/>
+                <label>Nickname:</label>
+                <input type="text" id="inputTextNickname"/>
+            </div>
+            <img src="resources/sprites/buttons/confirm.png" alt="" id="btnConfirm" class="btn--confirm"/>
+        </div>
+        <div id="formRole" class="hidden">
+            <h2>Current Role</h2>
+            <img src="" alt="" class="hidden"/>
+            <p>Checking your role…</p>
+        </div>
+        <div id="formVote" class="hidden">
+            <h2>Choose Your Vote</h2>
+            <img src="resources/sprites/cards/voteJa.png" alt="" id="btnVoteJa" class="btn--vote"/>
+            <img src="resources/sprites/cards/voteNein.png" alt="" id="btnVoteNein" class="btn--vote"/>
+        </div>
+        <div id="formPolicies" class="hidden">
+            <h2>Policies Management</h2>
+            <p>You have no policies to work with</p>
+        </div>
+        <div class="pages">
+            <img src="resources/sprites/buttons/formStatus.png" alt="" id="btnFormStatus"/>
+            <img src="resources/sprites/buttons/formRole.png" alt="" id="btnFormRole"/>
+            <img src="resources/sprites/buttons/formVote.png" alt="" id="btnFormVote"/>
+            <img src="resources/sprites/buttons/formPolicies.png" alt="" id="btnFormPolicies"/>
+            <img src="resources/sprites/buttons/seeRules.png" alt="" id="btnSeeRules"/>
+        </div>
     </form>
 
     <h1 class="small-screen-error">Please, use wider screen!</h1>
