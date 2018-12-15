@@ -44,12 +44,36 @@ def client_join():
 @checkArgs(['nick'])
 def client_getstatus():
     playerName = request.args['nick']
-    roomName = next(name for name, room in game.rooms.items() if playerName in room.players)
+    roomName = None
+    try:
+        roomName = next(name for name, room in game.rooms.items() if playerName in room.players)
+    except StopIteration:
+        return "TODO_not_in_a_room"
     if roomName is None:
         return "TODO_not_in_a_room"
     if game.rooms[roomName].state == game.state['lobby']:
         return "TODO_in_a_lobby"
-    return "TODO_in_a_game"
+    return game.rooms[roomName].roles[playerName]
+
+@app.route('/client/getpolicies')
+@checkArgs(['nick'])
+def client_getpolicies():
+    playerName = request.args['nick']
+    roomName = None
+    try:
+        roomName = next(name for name, room in game.rooms.items() if playerName in room.players)
+    except StopIteration:
+        return "TODO_not_in_a_room"
+    if roomName is None:
+        return "TODO_not_in_a_room"
+    if game.rooms[roomName].state == game.state['lobby']:
+        return json.dumps({'hasPolicies': False,})
+    #TODO : Return liberal policies amount
+    return json.dumps({
+                        'hasPolicies': True,
+                        'liberalAmount': 2,
+                        'amount': 3,
+                      })
 
 
 
