@@ -2,7 +2,7 @@ from flask import (render_template, request, redirect, url_for)
 from server import (app,)
 from functools import (wraps,)
 import json
-import server.engine as engine
+import server.engine as game
 
 mobileAgents = ['android', 'kaios', 'blackberry', 'iphone']
 
@@ -26,6 +26,31 @@ def client():
         return render_template('client.hh.html')
     return render_template('client.html')
 
+@app.route('/client/join')
+@checkArgs(['name', 'nick'])
+def client_join():
+    roomName = request.args['name']
+    playerName = request.args['nick']
+    if not roomName in game.rooms:
+        return "TODO_does_not_exist"
+    if playerName in game.rooms[roomName].players:
+        return "OK"
+    if len(game.rooms[roomName].players) > game.maxPlayersAmount:
+        return "TODO_full_lobby"
+    game.rooms[roomName].players.append(playerName)
+    return "OK"
+
+@app.route('/client/getstatus')
+@checkArgs(['nick'])
+def client_getstatus():
+    playerName = request.args['nick']
+    roomName = next(name for name, room in game.rooms.items() if playerName in room.players)
+    if roomName is None:
+        return "TODO_not_in_a_room"
+    if game.rooms[roomName].state == game.state['lobby']:
+        return "TODO_in_a_lobby"
+    return "TODO_in_a_game"
+
 
 
 @app.route('/host')
@@ -36,11 +61,9 @@ def host():
 @checkArgs(['name'])
 def host_create():
     roomName = request.args['name']
-    if roomName in engine.rooms:
+    if roomName in game.rooms:
         return "TODO_already_exists"
-    if not engine.Room.isValidName(roomName):
-        return "TODO_invalid_name"
-    engine.rooms[roomName] = engine.Room()
+    game.rooms[roomName] = game.Room()
     return "OK"
 
 
@@ -49,17 +72,29 @@ def host_create():
 @checkArgs(['name'])
 def lobby():
     roomName = request.args['name']
-    if not roomName in engine.rooms:
+    if not roomName in game.rooms:
         return "TODO_does_not_exist"
-    return render_template('lobby.html', roomName=request.args['name'])
+    return render_template('lobby.html', roomName=roomName)
 
 @app.route('/lobby/getplayers')
 @checkArgs(['name'])
 def lobby_getplayers():
     roomName = request.args['name']
-    if not roomName in engine.rooms:
+    if not roomName in game.rooms:
         return "TODO_does_not_exist"
     return json.dumps({
-                'amount' : len(engine.rooms[roomName].players),
-                'names' : [player.name for player in engine.rooms[roomName].players],
+                'amount' : len(game.rooms[roomName].players),
+                'names' : [name for name in game.rooms[roomName].players],
             })
+
+@app.route('/lobby/kick')
+@checkArgs(['name', 'nick'])
+def lobby_kick():
+    roomName = request.args['name']
+    playerName = request.args['nick']
+    if not roomName in game.rooms:
+        return "TODO_does_not_exist"
+    if not playerName in game.rooms[roomName].players:
+        return "TODO_no_such_player"
+    game.rooms[roomName].players.remove(playerName)
+    return "OK"
