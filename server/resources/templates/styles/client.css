@@ -66,16 +66,42 @@ form h2 {
     transform: perspective(600px) rotateY(0deg);
 }
 
-.btn--vote {
-    z-index: 10;
+.btn--vote--chosen {
+    transform: rotate(-90deg) scale(1.5);
+}
+.btn--vote0, .btn--vote1 {
     height: 200px;
     transition: 1.3s;
     cursor: pointer;
 }
-.btn--vote--chosen {
-    transform: rotate(-90deg) scale(1.5);
+.btn--vote0 {
+    transform: rotate(0deg); 
+}
+.btn--vote1 {
+    transform: rotate(0deg);
+}
+.btn--vote0--chosen {
+    transform: rotate(-90deg) scale(1.5) translateY(4vw);
+}
+.btn--vote1--chosen {
+    transform: rotate(-90deg) scale(1.5) translateY(-3.8vw);
 }
 
 #formPolicies > p {
     color: #fff;
 }
+#policies {
+    margin-top: 30px;
+}
+#policies > img {
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+#policies > img:hover {
+    transform: scale(1.05)
+}
+

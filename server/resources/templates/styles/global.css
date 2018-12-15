@@ -112,3 +112,6 @@ form h2 {
 .blocked {
     disabled: disabled;
 }
+.opaque {
+    opacity: 0;
+}

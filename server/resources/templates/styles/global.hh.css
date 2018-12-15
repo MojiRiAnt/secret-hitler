@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,600');
+@import url('https://fonts.googleapis.com/css?family=Rubik');
 
 * {
     margin: 0;
@@ -20,7 +21,7 @@ color palette:
 */
 
 body {
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Titillium Web', 'Rubik', sans-serif;
     background-color: #877d56;
 }
 
@@ -73,19 +74,45 @@ form {
     height: 76vh;
     
     background-color: #393939;
+    text-align: center;
     border-radius: 2vh;
 }
 form > h2 {
-    text-align: center;
-
-    font-size: 3vh;
+    font-size: 4vh;
     line-height: 3vh;
+}
+form label {
+    font-size: 2.6vh;
+    font-weight: normal;
+}
+form input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    font-size: 2.5vh;
 }
 @media (max-width:500px) {
 form {
     display: none;
 }
 }
+
+.btn--confirm {
+    margin-top: 4vw;
+    width: 15vw;
+    height: auto;
+    
+    text-align: center;
+
+    transition: 0.2s;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.btn--confirm:hover {
+    margin-top: 3.9vw;
+    width: 15.2vw;
+}
+
 .small-screen-error {
     font-size: 50pt;
 }
@@ -93,4 +120,14 @@ form {
 .small-screen-error {
     display: none;
 }
+}
+
+.hidden {
+    display: none;
+}
+.blocked {
+    disabled: disabled;
+}
+.opaque {
+    opacity: 0;
 }

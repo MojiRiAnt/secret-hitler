@@ -16,7 +16,15 @@ const btnConfirm      = document.getElementById('btnConfirm')
 
 const btnVote = [document.getElementById('btnVoteJa'),
                  document.getElementById('btnVoteNein')]
+const policiesDescription = document.getElementById('policiesDescription')
+const policies = [document.getElementById('policy0'),
+                  document.getElementById('policy1'),
+                  document.getElementById('policy2')]
+
 const rulesURL = 'https://secrethitler.com/assets/Secret_Hitler_Rules.pdf'
+const policyLiberal = '/resources/sprites/cards/policyLiberal.png'
+const policyFascist = '/resources/sprites/cards/policyFascist.png'
+
 
 let roomName = ''
 let roomPwd = ''
@@ -28,6 +36,7 @@ btnFormStatus.addEventListener('click', () => {
     formRole.classList.add('hidden')
     formVote.classList.add('hidden')
     formPolicies.classList.add('hidden')
+    console.log(formRole.classList)
 })
 
 btnConfirm.addEventListener('click', () => {
@@ -44,6 +53,7 @@ btnConfirm.addEventListener('click', () => {
                 inputRoomName.disabled=true
                 inputRoomPwd.disabled=true
                 inputPlayerName.disabled=true
+                btnConfirm.classList.add('hidden')
                 btnFormRole.click()
             } else {
                 //TODO
@@ -79,17 +89,46 @@ btnFormVote.addEventListener('click', () => {
 
 for(let i=0; i<2; ++i)
 btnVote[i].addEventListener('click', () => {
-    if(btnVote[i].classList.contains('btn--vote--chosen')) {
-        btnVote[i].classList.remove('btn--vote--chosen')
-        btnVote[1-i].classList.remove('hidden')
+    if(btnVote[i].classList.contains(`btn--vote${i}--chosen`)) {
+        btnVote[i].classList.remove(`btn--vote${i}--chosen`)
+        btnVote[1-i].classList.remove('opaque')
     } else {
-        btnVote[1-i].classList.add('hidden')
-        btnVote[i].classList.add('btn--vote--chosen')
+        btnVote[i].classList.add(`btn--vote${i}--chosen`)
+        btnVote[1-i].classList.remove(`btn--vote${1-i}--chosen`)
+        btnVote[1-i].classList.add('opaque')
+        btnVote[i].classList.remove('opaque')
     }
 })
 
 
 btnFormPolicies.addEventListener('click', () => {
+    policiesDescription.innerHTML = "Checking your policies…"
+    for(let i=0; i<3; ++i)
+        policies[i].classList.add('hidden')
+    fetch(`/client/getpolicies?nick=${playerName}`)
+        .then( (response) => {
+            return response.json()
+        })
+        .then( (response) => {
+            if(response['hasPolicies']) {
+                for(let i=0; i<3; ++i)
+                {
+                    if(i < response['liberalAmount']) {
+                        policies[i].src=policyLiberal
+                        policies[i].classList.remove('hidden')
+                    } else if(i < response['amount']) {
+                        policies[i].src=policyFascist
+                        policies[i].classList.remove('hidden')
+                    } else {
+                        policies[i].classList.add('hidden')
+                    }
+                }
+                policiesDescription.innerHTML="Select 1 policy to remove."
+            } else {
+                policiesDescription.innerHTML="You have no policies to work with."
+            }
+        })
+        .catch( (e) => policiesDescription.innerHTML="Cannot retrieve your policies data." ) //TODO
     formStatus.classList.add('hidden')
     formRole.classList.add('hidden')
     formVote.classList.add('hidden')

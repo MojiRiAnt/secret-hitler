@@ -14,21 +14,52 @@
 
     <form id="formStatus">
         <h2>Game Status</h2>
+        <div class="grid">
+            <label>Room name:</label>
+            <input type="text" id="inputTextRoomName"/>
+            <label>Password:</label>
+            <input type="password" id="inputTextPassword"/>
+            <label>Nickname:</label>
+            <input type="text" id="inputTextNickname"/>
+        </div>
+        <img src="resources/sprites/buttons/confirm.png" alt="" id="btnConfirm" class="btn--confirm"/>
     </form>
-    <form id="formRole">
+    <form id="formRole" class="hidden">
         <h2>Current Role</h2>
+            <div class="card">
+                <div class="card--front">
+                    <img src="resources/sprites/cards/partyBack.png" alt=""/>
+                </div>
+                <div class="card--back">
+                    <img src="resources/sprites/cards/roleBack.png" alt=""/>
+                </div>
+            </div>
     </form>
-    <form id="formVote">
-        <h2>Voting choice</h2>
+    <form id="formVote" class="hidden" style="margin-bottom: 10vh">
+        <h2>Choose Your Vote</h2>
+        <img src="resources/sprites/cards/voteJa.png" alt="" id="btnVoteJa" class="btn--vote0"/>
+        <img src="resources/sprites/cards/voteNein.png" alt="" id="btnVoteNein" class="btn--vote1"/>
     </form>
-    <form id="formPolicies">
-        <h2>Policies choice</h2>
+    <form id="formPolicies" class="hidden">
+        <h2>Policies Management</h2>
+        <p id="policiesDescription">You have no policies to work with.</p>
+        <div id="policies">
+            <img id="policy0" class="policy"/>
+            <img id="policy1" class="policy"/>
+            <img id="policy2" class="policy"/>
+        </div>
     </form>
 
     <h1 class="small-screen-error">Please, use wider screen!</h1>
 
     <footer>
-        <!--TODO: 3 buttons-->
+        <div class="pages">
+            <img src="resources/sprites/buttons/formStatus.png" alt="" id="btnFormStatus"/>
+            <img src="resources/sprites/buttons/formRole.png" alt="" id="btnFormRole"/>
+            <img src="resources/sprites/buttons/formVote.png" alt="" id="btnFormVote"/>
+            <img src="resources/sprites/buttons/formPolicies.png" alt="" id="btnFormPolicies"/>
+            <img src="resources/sprites/buttons/seeRules.png" alt="" id="btnSeeRules"/>
+        </div>
         <img src="resources/sprites/logo.png" alt=""/>
     </footer>
 
