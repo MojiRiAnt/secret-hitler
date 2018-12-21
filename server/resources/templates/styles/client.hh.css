@@ -1,23 +1,6 @@
-footer > img {
-    position: absolute;
-    right: 2vw;
-    bottom: 0;
-}
-
-.pages {
-    margin-left: 1vw;
-    padding: 10px;
-}
-.pages > img {
-    padding: 0.5vw;
-    height: 7vh;
-
-    border-radius: 50%;
-    cursor: pointer;
-}
-
 .grid {
-    margin-top: 20vh;
+    margin-top: 150px;
+    margin-bottom: 170px;
     display: grid;
     grid-template-columns: 43% 53%;
     grid-column-gap: 1%;
@@ -28,8 +11,11 @@ footer > img {
     color: #fff;
 }
 
+#btnConfirm {
+    width: 100px;
+}
+
 .card {
-    margin-top: 15vh;
     margin-left: auto;
     margin-right: auto;
     width: 60vw;
@@ -61,40 +47,48 @@ footer > img {
 }
 
 .btn--vote0, .btn--vote1 {
-    height: 70vw;
-    transition: 1.3s;
-    cursor: pointer;
-}
-.btn--vote0 {
-    transform: rotate(-90deg); 
-}
-.btn--vote1 {
-    transform: rotate(-90deg) translateX(9vh);
-}
-.btn--vote0--chosen {
-    transform: rotate(0deg) scale(1.5) translateY(10vh);
-}
-.btn--vote1--chosen {
-    transform: rotate(0deg) scale(1.5) translateY(-16vh);
+    margin-top: 50px;
+    width: 400px;
 }
 
 #formPolicies > p {
-    margin-top: 10vh;
+    margin-top: 100px;
 
-    font-size: 2vh;
+    font-size: 40px;
     color: #fff;
 }
 #policies {
-    margin-top: 15vh;
+    margin-top: 100px;
 }
 #policies > img {
     margin-right: 10px;
     margin-left: 10px;
-    height: 15vh;
+    height: 300px;
     cursor: pointer;
     border-radius: 1vh;
     transition: 0.3s;
 }
 #policies > img:hover {
     transform: scale(1.05)
+}
+
+.pages {
+    position: absolute;
+    left: 10px;
+}
+.pages > img {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: inline;
+    height: 200px;
+    min-height: 10vh;
+}
+footer > img {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    border-radius: 50px;
 }
