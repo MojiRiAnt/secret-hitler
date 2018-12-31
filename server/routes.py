@@ -37,7 +37,7 @@ def client_join():
         return "OK"
     if len(game.rooms[roomName].players) > game.maxPlayersAmount:
         return "TODO_full_lobby"
-    game.rooms[roomName].players.append(playerName)
+    game.rooms[roomName].players[playerName] = game.role['liberal']
     return "OK"
 
 @app.route('/client/getstatus')
@@ -122,3 +122,27 @@ def lobby_kick():
         return "TODO_no_such_player"
     game.rooms[roomName].players.remove(playerName)
     return "OK"
+
+@app.route('/lobby/confirm')
+@checkArgs(['name'])
+def lobby_confirm():
+    roomName = request.args['name']
+    if not roomName in game.rooms:
+        return "TODO_does_not_exist"
+    if len(game.rooms[roomName].players) < game.minPlayerAmount:
+        return "TODO_not_enough_players"
+    game.rooms[roomName].startGame()
+    return "OK"
+
+
+
+@app.route('/game')
+@checkArgs(['name'])
+def gameRoute():
+    roomName = request.args['name']
+    if not roomName in game.rooms:
+        return "TODO_does_not_exist"
+    return render_template('game.html', roomName=roomName)
+
+#@app.route('/game/addEvent')
+#@checkArgs()

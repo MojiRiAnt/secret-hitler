@@ -27,7 +27,6 @@ let updatePlayers = function () {
                 }
             }
         })
-    console.log('updatePlayers called!')
 }
 
 window.setInterval(updatePlayers, 5000)
@@ -53,8 +52,9 @@ btnConfirm.addEventListener('click', () => {
             return response.text()
         })
         .then( (response) => {
-            //TODO
-            console.log(response) 
+            if(response === "OK") {
+                window.location = `${window.location.protocol}//${window.location.host}/game?name=${roomName}`                
+            }
         })
 })
 
